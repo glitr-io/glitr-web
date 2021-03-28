@@ -1,5 +1,4 @@
 const webpackConfig = require('./webpack.config');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DashboardPlugin = require("webpack-dashboard/plugin");
 
 module.exports = {
@@ -12,9 +11,7 @@ module.exports = {
         port: 9000,
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Development',
-        }),
+        ...webpackConfig.plugins,
         new DashboardPlugin()
     ],
 }

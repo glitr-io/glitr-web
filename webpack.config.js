@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'production',
@@ -33,4 +34,9 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Development',
+        }),
+    ],
 };
