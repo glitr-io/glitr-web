@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const deps = require("./package.json").dependencies;
 
 module.exports = {
     mode: 'production',
@@ -36,7 +38,25 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Development',
+            title: 'glitr-web',
+        }),
+        new ModuleFederationPlugin({
+            name: "glitr-web",
+            filename: "remoteEntry.js",
+            remotes: {
+                'glitr-ui': "glitr-ui@https://glitr-io.github.io/glitr-ui/remoteEntry.js",
+            },
+            shared: {
+                ...deps,
+                react: {
+                    singleton: true,
+                    requiredVersion: deps.react,
+                },
+                "react-dom": {
+                    singleton: true,
+                    requiredVersion: deps["react-dom"],
+                },
+            },
         }),
     ],
 };
