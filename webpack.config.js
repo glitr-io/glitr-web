@@ -38,25 +38,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'glitr-web',
+            title: 'glitr_web',
         }),
         new ModuleFederationPlugin({
-            name: "glitr-web",
+            name: "glitr_web",
             filename: "remoteEntry.js",
             remotes: {
-                'glitr-ui': "glitr-ui@https://glitr-io.github.io/glitr-ui/remoteEntry.js",
+                'glitr_ui': "glitr_ui@https://glitr-io.github.io/glitr-ui/remoteEntry.js",
             },
-            shared: {
-                ...deps,
-                react: {
-                    singleton: true,
-                    requiredVersion: deps.react,
-                },
-                "react-dom": {
-                    singleton: true,
-                    requiredVersion: deps["react-dom"],
-                },
-            },
+            shared: { react: { singleton: true }, "react-dom": { singleton: true } },
         }),
     ],
 };

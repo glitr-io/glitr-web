@@ -1,4 +1,4 @@
-import { Button } from 'glitr-ui';
+import { Button } from 'glitr_ui';
 
 console.log('hello world', Button);
 
