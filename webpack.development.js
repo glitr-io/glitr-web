@@ -15,6 +15,14 @@ module.exports = {
     },
     plugins: [
         ...webpackConfig.plugins,
+        new ModuleFederationPlugin({
+            name: "glitr_web",
+            filename: "remoteEntry.js",
+            remotes: {
+                'glitr-ui': `glitr_ui@https://glitr-io.github.io/glitr-ui/remoteEntry.js`,
+            },
+            shared: { react: { singleton: true, eager: true }, "react-dom": { singleton: true, eager: true } },
+        }),
         // new DashboardPlugin({
         //     dashboardURL: "http://localhost:3000/api/update",
         //     metadata: {
