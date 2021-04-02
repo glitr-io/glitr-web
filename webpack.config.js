@@ -34,14 +34,6 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
-        new ModuleFederationPlugin({
-            name: "glitr_web",
-            filename: "remoteEntry.js",
-            remotes: {
-                'glitr-ui': `glitr_ui@http://localhost:9001/remoteEntry.js`,
-            },
-            shared: { react: { singleton: true, eager: true }, "react-dom": { singleton: true, eager: true } },
-        }),
         new HtmlWebpackPlugin({
             title: 'glitr_web',
             template: "./public/index.html",
