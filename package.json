@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "webpack serve --config webpack.development.js --open",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config webpack.production.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "predeploy": "npm run build-storybook",
