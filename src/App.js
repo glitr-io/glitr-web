@@ -1,5 +1,6 @@
 import React from "react";
-const Button = React.lazy(() => import("glitr-ui/Button"));
+// const Button = React.lazy(() => import("glitr-ui/Button"));
+import { Button } from '@glitr-io/glitr_ui';
 
 const App = () => (
   <div>
