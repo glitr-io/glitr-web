@@ -22,7 +22,11 @@ jobs:
         env:
           GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run build
+        env:
+          GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run build-storybook
+        env:
+          GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: deploy to github pages
         uses: crazy-max/ghaction-github-pages@v2
