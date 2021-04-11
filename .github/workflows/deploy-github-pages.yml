@@ -18,9 +18,9 @@ jobs:
           node-version: '14'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@glitr-io'
+      - run: npm install
         env:
           GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: npm install
       - run: npm run build
       - run: npm run build-storybook
 
